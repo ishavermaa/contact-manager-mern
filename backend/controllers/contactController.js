@@ -1,29 +1,55 @@
 const Contact = require("../models/Contact");
 
-// Create
+// Create Contact
 exports.createContact = async (req, res) => {
-  const contact = await Contact.create(req.body);
-  res.json(contact);
+  try {
+    const contact = await Contact.create(req.body);
+    res.status(201).json(contact);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-// Get All
+// Get All Contacts
 exports.getContacts = async (req, res) => {
-  const contacts = await Contact.find();
-  res.json(contacts);
+  try {
+    const contacts = await Contact.find();
+    res.json(contacts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-// Update
+// Update Contact
 exports.updateContact = async (req, res) => {
-  const updated = await Contact.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true }
-  );
-  res.json(updated);
+  try {
+    const updated = await Contact.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    if (!updated) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
+
+    res.json(updated);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-// Delete
+// Delete Contact
 exports.deleteContact = async (req, res) => {
-  await Contact.findByIdAndDelete(req.params.id);
-  res.json({ message: "Deleted successfully" });
+  try {
+    const deleted = await Contact.findByIdAndDelete(req.params.id);
+
+    if (!deleted) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
+
+    res.json({ message: "Deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
