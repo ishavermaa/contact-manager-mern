@@ -1,39 +1,4 @@
 
-<<<<<<< HEAD
-
-=======
-# 📱 MERN Contact Manager
-
-A full-stack Contact Management Web App built using the MERN stack (MongoDB, Express, React, Node.js).
-
-## 🚀 Features
-
-- 📞 Dial Pad to enter phone numbers
-- ➕ Add new contacts
-- 🔍 Search contacts by name or number
-- 🗑️ Delete contacts
-- 🔄 Real-time updates
-- 📱 Clean and responsive UI
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- React.js
-- Axios
-- CSS (inline styling)
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB (Atlas)
-- Mongoose
-
----
-
-## 📁 Project Structure
->>>>>>> 092dfdb519c8460a94007d589925ec1efd92e2ea
 # 📱 MERN Contact Manager
 
 A full-stack Contact Management Web App built using the MERN stack (MongoDB, Express, React, Node.js).
