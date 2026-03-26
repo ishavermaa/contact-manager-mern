@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/contacts";
+const API = "https://contact-manager-mern-t1ia.onrender.com/";
 
 export const getContacts = (search = "") =>
   axios.get(`${API}?search=${search}`);
